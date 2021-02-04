@@ -98,22 +98,63 @@ public class TicTacToe {
 	{
 		int player = 0;
 		int s = 0;
-		int s2 = 0;
-		int pos = 0;
+		int lr = 0;
+		int rl = 0;
 
 		for(int i = 0; i<3;i++)
 		{
 			for(int j = 0;j<3;j++)
 			{
-				switch(data[i][j]) {
-					case "X":
-					s++;
-					break;
-					case "O":
-					s+=2;
-					break;
-					default:
-					s+=8;
+				if(i == 1 && j == 1) {
+					switch(data[i][j]) {
+						case "X":
+						lr++;
+						rl++;
+						break;
+						case "O":
+						lr+=2;
+						rl+=2;
+						break;
+						default:
+						lr+=8;
+						rl+=8;
+					}
+				}
+				else if(i == j) {
+					switch(data[i][j]) {
+						case "X":
+						lr++;
+						break;
+						case "O":
+						lr+=2;
+						break;
+						default:
+						lr+=8;
+					}
+				}
+				else if((Math.abs(j-i) == 2)) {
+					switch(data[i][j]) {
+						case "X":
+						rl++;
+						break;
+						case "O":
+						rl+=2;
+						break;
+						default:
+						rl+=8;
+					}
+				}
+				else {	
+					switch(data[i][j]) {
+						case "X":
+						s++;
+						break;
+						case "O":
+						s+=2;
+						break;
+						default:
+						s+=8;
+					}
 				}
 			}
 			if (s == 3)
@@ -126,104 +167,25 @@ public class TicTacToe {
 			}
 			s = 0;
 		}
-		for(int i = 0; i<3;i++)
-		{
-			for(int j = 0;j<3;j++)
-			{
-				switch(data[j][i]) {
-					case "X":
-					s++;
-					break;
-					case "O":
-					s+=2;
-					break;
-					default:
-					s+=8;
-				}
-			}
-			if (s == 3)
-			{
-				player = 1;
-			}
-			else if(s == 6)
-			{
-				player = 2;
-			}
-			s = 0;
-		}
-		s = 0;
-		s2 = 0;
-		for (int i = 0;i<3;i++)
-		{
-			for(int j=0;j<3;j++)
-			{
-				switch(i) {
-					case 0:
-					if(i == 0)
-						pos = 1;
-					if(i == 2)
-						pos = 2;
-					break;
-					case 1:
-					pos = 3;
-					break;
-					case 2:
-					if(i == 2)
-						pos = 1;
-					if(i == 0)
-						pos = 2;
-				}
-				switch(pos) {
-					case 1:
-					switch(data[j][i]) {
-						case "X":
-						s++;
-						break;
-						case "O":
-						s+=2;
-						break;
-						default:
-						s+=8;
-					}
-					break;
-					case 2:
-					switch(data[j][i]) {
-						case "X":
-						s2++;
-						break;
-						case "O":
-						s2+=2;
-						break;
-						default:
-						s2+=8;
-					}
-					case 3:
-					switch(data[j][i]) {
-						case "X":
-						s++;
-						s2++;
-						break;
-						case "O":
-						s+=2;
-						s2+=3;
-						break;
-						default:
-						s+=8;
-						s2+=8;
-					}
-					System.out.println(s + ", "+s2);
-				}
-			}
-		}
-		if (s == 3 || s2 == 3)
+		if (lr == 3)
 		{
 			player = 1;
 		}
-		else if(s == 6 || s2 == 6)
+		else if(lr == 6)
 		{
 			player = 2;
 		}
-		s = 0;		
+		if(rl == 3)
+		{
+			player = 1;
+		}
+		else if(rl == 6)
+		{
+			player = 2;
+		}
+		s = 0;
+		lr = 0;
+		rl = 0;		
 
 
 		return player;
