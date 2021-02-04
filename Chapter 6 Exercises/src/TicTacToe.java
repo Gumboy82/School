@@ -144,18 +144,18 @@ public class TicTacToe {
 						rl+=8;
 					}
 				}
-				else {	
-					switch(data[i][j]) {
-						case "X":
-						s++;
-						break;
-						case "O":
-						s+=2;
-						break;
-						default:
-						s+=8;
-					}
+					
+				switch(data[i][j]) {
+					case "X":
+					s++;
+					break;
+					case "O":
+					s+=2;
+					break;
+					default:
+					s+=8;
 				}
+				
 			}
 			if (s == 3)
 			{
@@ -167,6 +167,34 @@ public class TicTacToe {
 			}
 			s = 0;
 		}
+
+		for(int i = 0; i<3;i++)
+		{
+			for(int j = 0;j<3;j++)
+			{
+				switch(data[j][i]) {
+					case "X":
+					s++;
+					break;
+					case "O":
+					s+=2;
+					break;
+					default:
+					s+=8;
+				}
+				
+			}
+			if (s == 3)
+			{
+				player = 1;
+			}
+			else if(s == 6)
+			{
+				player = 2;
+			}
+			s = 0;
+		}
+
 		if (lr == 3)
 		{
 			player = 1;
