@@ -10,7 +10,7 @@ public class CardDriver {
 		for(int i = 0; i <4; i++)
 			deck.Shuffle();
 		int size = deck.deckSize();
-		for(int i = 0; i<size;i++)
+		for(int i = 0; i<52;i++)
 		{
 			c = deck.drawCard(); //draws card and stores it to c
 			c.display();

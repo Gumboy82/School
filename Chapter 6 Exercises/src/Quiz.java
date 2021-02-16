@@ -17,7 +17,8 @@ public class Quiz {
     public void addQuestion(String Q, String A) {
         Questions[qnumber].setQuestion(Q);
         Questions[qnumber].setAnswer(A);
-        System.out.println("You can add " + qnumber + " more questions");
+        System.out.println("You can add " + (24-qnumber) + " more questions");
+        qnumber++;
     }
 
     public void giveQuiz() {        
@@ -26,6 +27,7 @@ public class Quiz {
         int c = 0;
         for(int i = 0;i<25;i++) {
             if(Questions[i].getQuestion() != "") {
+            	System.out.print("Question "+i+": ");
                 System.out.println(Questions[i].getQuestion());
                 a = sc.nextLine();
                 Responses[i] = new Question(Questions[i].getQuestion(), a);

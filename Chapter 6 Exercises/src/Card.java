@@ -73,4 +73,9 @@ public class Card {
 		System.out.println("The card is a "+N+" of "+S);
 	}
 	
+	public String toString()
+	{
+		return getNumber() + " of " + getSuit();
+	}
+	
 }
