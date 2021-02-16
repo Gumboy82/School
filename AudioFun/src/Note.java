@@ -14,6 +14,5 @@ public class Note {
     double r = 0; 
 
     public Note() {
-        int i = 1;
     }
 }

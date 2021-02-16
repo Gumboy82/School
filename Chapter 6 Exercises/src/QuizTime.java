@@ -12,7 +12,7 @@ public class QuizTime {
             q = sc.nextLine();
             System.out.println("What is the Answer to the Question");
             a = sc.nextLine();
-
+            Quiz.addQuestion(q, a);
 
             System.out.println("Do you want to add more questions? (1 for yes, 0 for no)");
             i = sc.nextInt();
