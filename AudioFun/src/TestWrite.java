@@ -22,17 +22,28 @@ public  class TestWrite {
 		double bpm = 120;
 		double bps = bpm/60;
 		double spb = (1/bps);
-		double inc = 1/8000;
 		
 		Note oct = new Note();
-		NoteLength set = new NoteLength(spb);
+		NoteLength set = new NoteLength(spb, 16000);
 		
 		
-		byte[] in = new byte[set.half.length];
-		System.out.println(set.half.length);
+        byte[] in = new byte[set.half.length];
+        double[] n1 = new double[set.half.length];
+        double[] n2 = new double[set.half.length];
+        double[] n3 = new double[set.half.length];
+        
+        
+
 		for(int i = 0; i<in.length; i++) {
-			in[i] = (byte) (120*Math.sin(2*Math.PI*oct.c/in.length*i));
-		}
+            n1[i] = (120*Math.sin(2*Math.PI*oct.c/in.length*i));
+            n2[i] = (120*Math.sin(2*Math.PI*oct.e/in.length*i));
+            n3[i] = (120*Math.sin(2*Math.PI*oct.g/in.length*i));
+        }
+        for(int i = 0; i<in.length; i++) {
+			in[i] = (byte) (n1[i] + n2[i] + n3[i]);
+        }
+
+        
 		InputStream buf = new ByteArrayInputStream(in);
 
 

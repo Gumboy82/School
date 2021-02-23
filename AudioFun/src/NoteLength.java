@@ -18,7 +18,7 @@ public class NoteLength {
     	
     	
     	
-        quarter = new double[(int)(spb)*frameSize];
+        quarter = new double[(int)((spb)*frameSize)];
         eighth = new double[(int)((spb/2)*frameSize)];
         sixteenth = new double[(int)((spb/4)*frameSize)];
         half = new double[(int)((spb*2)*frameSize)];
