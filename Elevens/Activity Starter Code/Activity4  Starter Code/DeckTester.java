@@ -54,9 +54,7 @@ public class DeckTester {
 		*/
 
 		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
-		String[] ranks = {"jack", "queen", "king"};
-		String[] suits = {"blue", "red"};
-		int[] pointValues = {11, 12, 13};
+		Deck d = new Deck(ranks, suits, pointValues);
 		
 	}
 }
