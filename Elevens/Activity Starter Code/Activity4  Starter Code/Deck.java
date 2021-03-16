@@ -1,4 +1,7 @@
 import java.util.List;
+
+import javax.smartcardio.Card;
+
 import java.util.ArrayList;
 
 /**
@@ -63,6 +66,13 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		
+		for(int i = 51; i>0; i--) {
+			int rng = (int)(Math.random()*52);
+			cards.set(i, cards.get(rng));
+		}
+		size = cards.size();
+		
 	}
 
 	/**
