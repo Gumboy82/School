@@ -14,7 +14,7 @@ public class test {
             total+=Math.pow(x, i)/fact;
         }
         System.out.println(total);
-        Object obj;
-        obj.
+        
+        
     }
 }
